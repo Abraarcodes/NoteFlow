@@ -16,6 +16,7 @@ import  Features  from './components/sections/Features';
 
 
 import FAQs from "./components/sections/FAQs/FAQs";
+import Testimonials from "./components/sections/Testimonials/Testimonials";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       </Main>
 
       <FAQs/>
+      <Testimonials/>
     </Page>
   )
 }
