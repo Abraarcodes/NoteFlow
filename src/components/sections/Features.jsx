@@ -7,7 +7,7 @@ function Features() {
   return (
     <section className="bg-primary-1500 bg-[url('../src/assests/Noise.webp')] bg-repeat overflow-hidden ">
         <div className='text-primary-50 relative m-auto max-w-[90rem] px-24 py-32 '>
-            <div className='bg-primary-1300 absolute h-[62.5rem] w-[62.5rem] opacity-100 rounded-full top-[50%] left-[100%] -translate-[50%] blur-[40rem]'/>
+            <div className='bg-primary-1300 absolute h-[62.5rem] w-[62.5rem] opacity-100 rounded-full top-[50%] left-[100%] -translate-[50%] blur-[40rem]'/> {/* the glow */}
             
             <h2 className='mb-28 text-center text-6xl/18 font-semibold tracking-tighter'>
             All The Tools You Need to <br /><span className='text-primary-500 primary-glow'>Supercharge</span> Your Note Taking

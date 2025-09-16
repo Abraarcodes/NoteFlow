@@ -18,6 +18,8 @@ import  Features  from './components/sections/Features';
 import FAQs from "./components/sections/FAQs/FAQs";
 import Testimonials from "./components/sections/Testimonials/Testimonials";
 import Footer from "./components/sections/Footer";
+import Modal from "./components/sections/Modal/Modal";
+import SignupModal from "./components/sections/Modal/SignupModal";
 
 function App() {
   return (
@@ -36,6 +38,10 @@ function App() {
       <FAQs/>
       <Testimonials/>
       <Footer/>
+
+      <Modal>
+        <SignupModal/>
+      </Modal>
     </Page>
   )
 }
