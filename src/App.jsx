@@ -20,9 +20,11 @@ import Testimonials from "./components/sections/Testimonials/Testimonials";
 import Footer from "./components/sections/Footer";
 import Modal from "./components/sections/Modal/Modal";
 import SignupModal from "./components/sections/Modal/SignupModal";
+import { ModalContextProvider } from "./contexts/ModalContext";
 
 function App() {
   return (
+    <ModalContextProvider>
     <Page>
       <Header>
         <Navigation/>
@@ -39,10 +41,11 @@ function App() {
       <Testimonials/>
       <Footer/>
 
-      <Modal>
+      <Modal modal="sign-up">
         <SignupModal/>
       </Modal>
     </Page>
+    </ModalContextProvider>
   )
 }
 

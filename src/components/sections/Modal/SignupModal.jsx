@@ -2,6 +2,7 @@ import React from 'react'
 import Close from '../../icons/Close'
 import Checkmark from '../../icons/Checkmark'
 import { useState } from 'react'
+import { useModalContext } from '../../../contexts/ModalContext';
 
 const initialState = {
   email: "",
@@ -12,6 +13,7 @@ const initialState = {
 function SignupModal() {
   const [inputs, setInputs] = useState(initialState)
   const [checked, setChecked]=useState(false)
+  const {setActiveModal}=useModalContext();
 
   function handleInputs(e){
   setInputs((prevInputs)=>{
@@ -29,6 +31,7 @@ function handleSubmit(e){
     setInputs(initialState)
 
     //close modal
+    setActiveModal("")
 
     //submit this data to a database, etc..
   }
@@ -42,7 +45,8 @@ function handleSubmit(e){
           <p className='text-primary-100 text-lg/8'>No charges, no fees. Get note taking in minutes!</p>
       </div>
       <div className='bg-primary-1500 flex flex-col p-10 gap-y-24 justify-between'>
-         <button className='border-2 border-primary-75 hover:bg-primary-75 group transition-properties ml-auto w-fit cursor-pointer rounded-2xl p-3'>
+         <button className='border-2 border-primary-75 hover:bg-primary-75 group transition-properties ml-auto w-fit cursor-pointer rounded-2xl p-3'
+          onClick={()=>setActiveModal("")}>
             <Close 
               className="stroke-primary-75 group-hover:stroke-primary-1300 transition-properties"
               width={2}/>
