@@ -1,41 +1,45 @@
-import { motion } from 'motion/react'
-import React from 'react'
-import { useModalContext } from '../../../contexts/ModalContext';
+import { useModalContext } from "../../../contexts/ModalContext";
+import { motion } from "motion/react";
 
-function Modal({children, modal}) {
-    const {activeModal,setActiveModal} = useModalContext();
-    const activeDisplayedModal = modal === activeModal;
+export default function Modal({ children, modal }) {
+  const { activeModal, setActiveModal } = useModalContext();
+  const activelyDisplayedModal = modal === activeModal;
 
   return (
-    <motion.div  className='fixed top-0 left-0 bottom-0 right-0 flex items-center justify-center px-24 py-32 backdrop-blur-sm z-50'
-    animate={activeDisplayedModal ? "visible" : "hidden"}
-    variants={{
-        hidden:{
-            opacity:0,
-            visibility:"hidden"
+    <motion.div
+      animate={activelyDisplayedModal ? "visible" : "hidden"}
+      variants={{
+        hidden: {
+          opacity: 0,
+          visibility: "hidden",
         },
-        visible:{
-            opacity:1,
-            visibility:"visible"
-        }
-    }}
-    transition={{duration:0.25, ease:"easeInOut"}}
-    onClick={(e)=> e.currentTarget === e.target && setActiveModal("")}
+        visible: {
+          opactiy: 100,
+          visibility: "visible",
+        },
+      }}
+      transition={{ duration: 0.25, ease: "easeInOut" }}
+      className="bg-primary-1300/50 fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center px-24 py-32 backdrop-blur-sm max-lg:px-8 max-md:px-6"
+      onClick={(e) => e.currentTarget === e.target && setActiveModal("")}
     >
       <motion.div
-      className='flex overflow-hidden rounded-2xl opacity-0 shadow-[0px_0px_20px_rgba(6,18,18,10)]'
-      initial={{opacity:0, y:40}}
-      animate={
-        activeDisplayedModal 
-            ? {opacity:100 , y:0}
-            : {opacity: 0, y:30}
-      }
-      transition={{ duration: 0.25, ease: "easeInOut"}}
+        initial={{ opacity: 0, y: 40 }}
+        animate={
+          activelyDisplayedModal
+            ? {
+                opacity: 100,
+                y: 0,
+              }
+            : {
+                opacity: 0,
+                y: 30,
+              }
+        }
+        transition={{ duration: 0.25, ease: "easeInOut" }}
+        className="flex overflow-hidden rounded-2xl opacity-0 shadow-[0px_0px_20px_rgb(6,18,18,.10)]"
       >
-         {children}
+        {children}
       </motion.div>
     </motion.div>
-  )
+  );
 }
-
-export default Modal

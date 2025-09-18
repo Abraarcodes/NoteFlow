@@ -1,52 +1,58 @@
-// page
+// Page Layout
 import Page from "./components/sections/Page";
 
-
-// header
+// Header
 import Header from "./components/sections/Header";
-import Hero from "./components/sections/Hero";
 import Navigation from "./components/sections/Navigation";
+import Hero from "./components/sections/Hero";
 import Reviews from "./components/sections/Reviews";
-
 
 // Main
 import Main from "./components/sections/Main";
 import Logos from "./components/sections/Logos";
-import  Features  from './components/sections/Features';
-
-
+import Features from "./components/sections/Features";
 import FAQs from "./components/sections/FAQs/FAQs";
 import Testimonials from "./components/sections/Testimonials/Testimonials";
+
+// Footer
 import Footer from "./components/sections/Footer";
+
+// Modal
 import Modal from "./components/sections/Modal/Modal";
-import SignupModal from "./components/sections/Modal/SignupModal";
+import SignUpModal from "./components/sections/Modal/SignupModal";
 import { ModalContextProvider } from "./contexts/ModalContext";
+
+// Mobile Menu
+import MobileMenu from "./components/sections/MobileMenu/MobileMenu";
+import { MobileMenuContextProvider } from "./contexts/MobileMenuContext";
 
 function App() {
   return (
     <ModalContextProvider>
-    <Page>
-      <Header>
-        <Navigation/>
-        <Hero/>
-        <Reviews/>
-      </Header>
+      <MobileMenuContextProvider>
+        <Page>
+          <Header>
+            <Navigation />
+            <Hero />
+            <Reviews />
+          </Header>
+          <Main>
+            <Logos />
+            <Features />
+            <FAQs />
+            <Testimonials />
+          </Main>
+          <Footer />
 
-      <Main>
-        <Logos/>
-        <Features/>
-      </Main>
+          <Modal modal="sign-up">
+            <SignUpModal />
+          </Modal>
 
-      <FAQs/>
-      <Testimonials/>
-      <Footer/>
-
-      <Modal modal="sign-up">
-        <SignupModal/>
-      </Modal>
-    </Page>
+          <MobileMenu />
+        </Page>
+      </MobileMenuContextProvider>
     </ModalContextProvider>
-  )
+  );
 }
 
 export default App;
